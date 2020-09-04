@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package wm.sx.svc.group;
+
+service Group {
+rpc GetAllDiscussGroup (GetAllDiscussGroupRequest) returns (GetAllDiscussGroupResponse) {
+}
+rpc JoinDiscussGroup (JoinDiscussGroupRequest) returns (JoinDiscussGroupResponse) {
+}
+rpc CreateDiscussGroup (CreateDiscussGroupRequest) returns (CreateDiscussGroupResponse) {
+}
+}
+
+message ErrorMsg {
+    string msg = 1;
+}
+
+message CreateDiscussGroupRequest {
+    string name = 1;
+    string cover = 2;
+    int64 postId = 3;
+}
+
+message CreateDiscussGroupResponse {
+    DiscussGroup discussGroup = 1;
+    ErrorMsg errorMsg = 999;
+}
+
+message JoinDiscussGroupRequest {
+    int64 mengerId = 1;
+    int64 groupId = 2;
+}
+
+message JoinDiscussGroupResponse {
+    ErrorMsg errorMsg = 999;
+}
+
+message GetAllDiscussGroupRequest {
+    int64 mengerId = 1;
+}
+
+message GetAllDiscussGroupResponse {
+    repeated DiscussGroup discussGroups = 1;
+
+    ErrorMsg errorMsg = 999;
+}
+
+message DiscussGroup {
+    int64 id = 1;
+    string name = 2;
+    string cover = 3;
+    int64 postId = 4;
+}
+
+
+
