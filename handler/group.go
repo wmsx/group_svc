@@ -24,7 +24,7 @@ func (g GroupHandler) GetAllDiscussGroup(ctx context.Context,req *proto.GetAllDi
 		protoDiscussGroups = append(protoDiscussGroups, protoDiscussGroup)
 	}
 
-	res.DiscussGroups = protoDiscussGroups;
+	res.DiscussGroups = protoDiscussGroups
 	return nil
 }
 
