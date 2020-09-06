@@ -32,7 +32,7 @@ func SetUp() (err error) {
 		return err
 	}
 
-	db.AutoMigrate(&DiscussGroup{})
+	db.AutoMigrate(&DiscussGroup{}, &DiscussGroupMember{})
 
 	if sqlDB, err = db.DB(); err != nil {
 		log.Error("获取数据库实例失败 err:", err)
